@@ -10,10 +10,11 @@ const isEmpty = val => {
 
 module.exports = function validateRegistration(data) {
   let errors = {};
-  data.name = !isEmpty(data.name) ? data.name : ''
-  data.email = !isEmpty(data.email) ? data.email : ''
-  data.password = !isEmpty(data.password) ? data.password : ''
-  data.password2 = !isEmpty(data.password2) ? data.password2 : ''
+  data.name = isEmpty(data.name) ? '' : data.name
+  data.email = isEmpty(data.email) ? '' : data.email
+  data.password = isEmpty(data.password) ? '' : data.password
+  data.password2 = isEmpty(data.password2) ? '' : data.password2
+  console.log(data.password, data.password2)
 
   if(!Validator.isLength(data.name, {min: 2, max: 30})) {
     errors.name = 'Name must be between 2 and 30 characters'
@@ -25,7 +26,7 @@ module.exports = function validateRegistration(data) {
   if(Validator.isEmpty(data.name)) errors.name = 'Name is required'
   if(Validator.isEmpty(data.password)) errors.password = 'Password is required'
   if(Validator.isEmpty(data.password2)) errors.password2 = 'Must confirm password'
-  if(!Validator.equals(data.password, data.password2)) errors.password2 = "Your passwords don't, please check them"
+  if(!Validator.equals(data.password, data.password2)) errors.password2 = "Your passwords don't match, please check them"
 
   return {
     errors,

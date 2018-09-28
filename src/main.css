@@ -31,10 +31,19 @@ h1 {
   border-radius: 5px;
   width: 150px;
   font-size: 20px;
+  margin-top: 10px;
 }
 
 .form-container button:hover {
   background-color: blue;
   cursor: pointer;
+}
+
+.form-container .invalid-feedback {
+  color: red;
+}
+
+.form-container .is-invalid {
+  border: 1px solid red;
 }
 /*# sourceMappingURL=main.css.map */

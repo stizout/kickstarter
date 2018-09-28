@@ -31,9 +31,16 @@ h1 {
     border-radius: 5px;
     width: 150px;
     font-size: 20px;
+    margin-top: 10px;
   }
   button:hover {
     background-color: blue;
     cursor: pointer;
+  }
+  .invalid-feedback {
+    color: red;
+  }
+  .is-invalid {
+    border: 1px solid red;
   }
 }
