@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { registerUser } from '../ducks/actions/authorizationActions';
 
-export default class Registration extends Component {
+
+class Registration extends Component {
   constructor() {
     super();
     this.state = {
@@ -8,14 +12,29 @@ export default class Registration extends Component {
       email: '',
       password: '',
       password2: '',
-
+      errors: {},
     }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.errors) this.setState({
+      errors: nextProps.errors
+    });
   }
 
   handleInputs = (e) => {
     this.setState({
       [e.target.name]: e.target.value
     })
+  }
+  submit = () => {
+    const { name, email, password } = this.state
+    let newUser = {
+      name,
+      email,
+      password
+    }
+    this.props.registerUser(newUser, this.props.history);
   }
 
   render() {
@@ -26,8 +45,16 @@ export default class Registration extends Component {
         <input onChange={this.handleInputs} name="email" placeholder="Email Address"/>
         <input onChange={this.handleInputs} type="password" name="password" placeholder="Password"/>
         <input  onChange={this.handleInputs} type="password" name="password2" placeholder="Verify Password"/>
-        <button>Register</button>
+        <button onClick={this.submit}>Register</button>
       </div>
     )
   }
 }
+
+const mapStateToProps = state => ({
+  auth: state.auth
+})
+
+
+
+export default connect(mapStateToProps, { registerUser })(withRouter(Registration));

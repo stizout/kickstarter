@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './ducks/store';
 import Loadable from 'react-loadable';
 
 
@@ -17,12 +19,14 @@ const Login = Loadable({
 });
 
 const Home = () => (
-  <Router>
-    <Switch>
-      <Route path="/register" component={Registration}/>
-      <Route path="/login" component={Login}/>
-    </Switch>
-  </Router>
+  <Provider store={store}>
+    <Router>
+      <Switch>
+        <Route path="/register" component={Registration}/>
+        <Route path="/login" component={Login}/>
+      </Switch>
+    </Router>
+  </Provider>
 )
 
 class App extends Component {
