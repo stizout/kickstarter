@@ -41,11 +41,14 @@ class Registration extends Component {
     console.log(this.state)
     return (
       <div>
-        <input onChange={this.handleInputs} name="name" placeholder="Full Name"/>
-        <input onChange={this.handleInputs} name="email" placeholder="Email Address"/>
-        <input onChange={this.handleInputs} type="password" name="password" placeholder="Password"/>
-        <input  onChange={this.handleInputs} type="password" name="password2" placeholder="Verify Password"/>
-        <button onClick={this.submit}>Register</button>
+        <h1>Register</h1>
+        <div className="form-container">
+          <input onChange={this.handleInputs} name="name" placeholder="Full Name"/>
+          <input onChange={this.handleInputs} name="email" placeholder="Email Address"/>
+          <input onChange={this.handleInputs} type="password" name="password" placeholder="Password"/>
+          <input  onChange={this.handleInputs} type="password" name="password2" placeholder="Verify Password"/>
+          <button onClick={this.submit}>Register</button>
+        </div>
       </div>
     )
   }
