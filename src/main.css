@@ -237,6 +237,15 @@ header .header-container-right {
   list-style-type: none;
 }
 
+header .header-container-right li {
+  cursor: pointer;
+}
+
+header .header-container-right li:nth-child(2) {
+  margin: 0 10px;
+  cursor: pointer;
+}
+
 header .header-container-right a:nth-child(2) {
   margin: 0 10px;
 }

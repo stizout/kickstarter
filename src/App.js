@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { setUserInRedux, logoutUser } from './ducks/actions/authorizationActions';
+import jwt_decode from 'jwt-decode';
+import setAuthHeader from './setAuthHeader';
 import store from './ducks/store';
 import Loadable from 'react-loadable';
 
@@ -38,6 +41,20 @@ const Home = () => (
     </Router>
   </Provider>
 )
+
+if(localStorage.jwtToken) {
+  setAuthHeader(localStorage.jwtToken);
+  const decoded = jwt_decode(localStorage.jwtToken)
+
+  store.dispatch(setUserInRedux(decoded))
+  const currentTime = Date.now() / 1000;
+  if(decoded.exp < currentTime) {
+    store.dispatch(logoutUser());
+  
+    // redirect
+    window.location.href="/login";
+  }
+}
 
 class App extends Component {
   render() {

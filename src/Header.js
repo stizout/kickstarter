@@ -1,26 +1,45 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { logoutUser } from './ducks/actions/authorizationActions';
 
-const Header = () => {
+
+class Header extends Component{
+  logout = () => {
+    this.props.logoutUser();
+  }
+  render() {
+    const loggedInLinks = (
+      <ul className="header-container-right">
+      <li onClick={this.logout}>Logout</li>
+    </ul>
+    )
+    const notLoggedInLinks = (
+      <ul className="header-container-right">
+      <Link to="/login"><li>Login</li></Link>
+      <Link to="/register"><li id="register-link">Register</li></Link>
+    </ul>
+    )
   return (
     <header>
       <div>
         <ul className="header-container-left">
-          <a href="/"><li>Brand</li></a>
-          <a href="/dashboard"><li>Dashboad</li></a>
+          <Link to="/"><li>Brand</li></Link>
+          <Link to="/dashboard"><li>Dashboad</li></Link>
           <li>Projects</li>
         </ul>
       </div>
       <div>
-        <ul className="header-container-right">
-          <a href="/login"><li>Login</li></a>
-          <a href="/register"><li>Register</li></a>
-          <li>Logout</li>
-        </ul>
+        {this.props.auth.isLoggedIn ? loggedInLinks : notLoggedInLinks}
       </div>
     </header>
   )
 }
+}
+
+const mapStateToProps = state => ({
+  auth: state.auth
+})
 
 
-export default Header;
+export default connect(mapStateToProps, { logoutUser })(Header);
