@@ -10,8 +10,10 @@ const validateRegistration = require('../../validation/registration');
 const validateLogin = require('../../validation/login');
 
 // Test Route
-router.get('/test', (req, res) => {
-  res.json({msg: 'User Works'})
+router.get('/totalUsers', (req, res) => {
+  User.find().then(users => {
+    res.json(users.length)
+  })
 });
 
 router.post('/register', (req, res) => {

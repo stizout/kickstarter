@@ -9,8 +9,10 @@ const passport = require('passport');
 const campaignValidator = require('../../validation/campaign');
 const Campaign = require('../models/Campaign');
 
-router.get('/current', (req, res) => {
-  res.json({msg: 'The Current Campaigns router is working... kinda....'})
+router.get('/', (req, res) => {
+  Campaign.find().then(campaigns => {
+    res.json(campaigns);
+  })
 });
 
 router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {

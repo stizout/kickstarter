@@ -9,6 +9,7 @@ const CampaignSchema = new Schema({
   },
   description: String,
   fullyFunded: Number,
+  donation: Number,
   likes: [
     {
       user: {

@@ -306,6 +306,72 @@ header .header-container-right a:nth-child(2) {
   padding: 25px;
 }
 
+.dashboard-header-stats {
+  height: 100px;
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+  border: 1px solid black;
+  -webkit-box-shadow: 1px 1px 4px black;
+          box-shadow: 1px 1px 4px black;
+  margin-top: 15px;
+}
+
+.total-backers, .live-projects {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: yellow;
+  height: 100%;
+  width: 50%;
+}
+
+.total-backers h2, .live-projects h2 {
+  font-size: 24px;
+}
+
+.total-backers p, .live-projects p {
+  font-size: 24px;
+  margin-left: 25px;
+}
+
+.dashboard-category-header {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 50px;
+  font-size: 24px;
+}
+
+.dashboard-category-header div {
+  border-bottom: 5px solid #969696;
+  width: 260px;
+  padding-left: -25px;
+}
+
+.dashboard-category-header div span {
+  margin: 0 10px;
+  color: #969696;
+}
+
+.dashboard-category-header div .active {
+  border-bottom: 5px solid black;
+  color: black;
+}
+
 footer {
   height: 100px;
   background-color: purple;
