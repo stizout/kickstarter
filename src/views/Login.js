@@ -22,7 +22,7 @@ export default class Registration extends Component {
     return (
       <div className="login-container">
         <Header />
-        <h1>Login</h1>
+        <h1 className="reg-log-header">Login</h1>
         <div>
           <form className="form-container">
             <input onChange={this.handleInputs} name="email" placeholder="Email Address"/>

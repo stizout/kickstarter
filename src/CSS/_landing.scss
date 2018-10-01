@@ -13,15 +13,16 @@
     text-shadow: 1px 2px 3px black;
 
   }
-  p, button, h1{
-    z-index: 1;
-  }
   button {
     background-color: salmon;
     border-radius: 10px;
     margin-top: 10px;
     padding: 10px;
     font-size: 24px;
+    cursor: pointer;
+  }
+  p, a, h1{
+    z-index: 1;
   }
 }
 .landing-ul { 

@@ -21,6 +21,10 @@ const Landing = Loadable({
   loader: () => import('./views/Landing'),
   loading: Loading
 });
+const Dashboard = Loadable({
+  loader: () => import('./views/Dashboard'),
+  loading: Loading
+});
 
 const Home = () => (
   <Provider store={store}>
@@ -29,6 +33,7 @@ const Home = () => (
         <Route path="/" exact component={Landing}/>
         <Route path="/register" component={Registration}/>
         <Route path="/login" component={Login}/>
+        <Route path="/dashboard" component={Dashboard}/>
       </Switch>
     </Router>
   </Provider>

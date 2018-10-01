@@ -46,9 +46,9 @@ class Registration extends Component {
     console.log(this.state)
     const { errors } = this.state
     return (
-      <div>
+      <div className="registration-container">
         <Header />
-        <h1>Register</h1>
+        <h1 className="reg-log-header">Register</h1>
         <form className="form-container" onSubmit={this.submit}>
           <input 
             onChange={this.handleInputs} 
