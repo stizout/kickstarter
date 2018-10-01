@@ -1,0 +1,21 @@
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: lightcoral;
+  .header-container-left {
+    display: flex;
+    list-style-type: none;
+    li:nth-child(2) {
+      margin: 0 10px;
+    }
+  }
+  .header-container-right {
+    display: flex;
+    list-style-type: none;
+    li:nth-child(2) {
+      margin: 0 10px;
+    }
+  }
+}
