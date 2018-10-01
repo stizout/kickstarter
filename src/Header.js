@@ -7,7 +7,7 @@ const Header = () => {
       <div>
         <ul className="header-container-left">
           <a href="/"><li>Brand</li></a>
-          <a href="/dashboard"><li>Home</li></a>
+          <a href="/dashboard"><li>Dashboad</li></a>
           <li>Projects</li>
         </ul>
       </div>
