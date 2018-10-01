@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import Header from '../Header';
+import Footer from '../Footer';
 
 export default class Registration extends Component {
   constructor() {
@@ -18,10 +20,17 @@ export default class Registration extends Component {
   render() {
     console.log(this.state)
     return (
-      <div>
-        <input onChange={this.handleInputs} name="email" placeholder="Email Address"/>
-        <input onChange={this.handleInputs} type="password" name="password" placeholder="Password"/>
-        <button>Login</button>
+      <div className="login-container">
+        <Header />
+        <h1>Login</h1>
+        <div>
+          <form className="form-container">
+            <input onChange={this.handleInputs} name="email" placeholder="Email Address"/>
+            <input onChange={this.handleInputs} type="password" name="password" placeholder="Password"/>
+            <input type="submit" className="submit-button"/>
+          </form>
+        </div>
+        <Footer />
       </div>
     )
   }

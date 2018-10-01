@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import Header from '../Header';
+import Footer from '../Footer';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { registerUser } from '../ducks/actions/authorizationActions';
@@ -28,8 +30,8 @@ class Registration extends Component {
       [e.target.name]: e.target.value
     })
   }
-  submit = () => {
-
+  submit = (e) => {
+    e.preventDefault();
     const { name, email, password, password2 } = this.state
     let newUser = {
       name,
@@ -45,8 +47,9 @@ class Registration extends Component {
     const { errors } = this.state
     return (
       <div>
+        <Header />
         <h1>Register</h1>
-        <div className="form-container">
+        <form className="form-container" onSubmit={this.submit}>
           <input 
             onChange={this.handleInputs} 
             name="name" 
@@ -72,8 +75,9 @@ class Registration extends Component {
             className={classnames({'is-invalid': errors.password})}
           />
           {errors.password2 && (<div className="invalid-feedback">{errors.password2}</div>)}
-          <button onClick={this.submit}>Register</button>
-        </div>
+          <input type="submit" className="submit-button"/>
+        </form>
+        <Footer />
       </div>
     )
   }
