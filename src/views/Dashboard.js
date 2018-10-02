@@ -8,6 +8,8 @@ export default class Dashboard extends Component {
     super();
     this.state = {
       campaigns: [],
+      campaignSort: [],
+      featured: [],
       totalUsers: null,
       category: 'Tech'
     }
@@ -15,19 +17,28 @@ export default class Dashboard extends Component {
 
   componentDidMount() {
     axios.get('/api/campaigns').then(res => {
-      this.setState({campaigns: res.data})
-    })
+      const sorted = res.data.filter((e) => e.category === 'Tech')
+      const featured = res.data[Math.floor(Math.random() * res.data.length)]
+      console.log('sorted', sorted)
+      this.setState({
+        campaigns: res.data, 
+        campaignSort: sorted,
+        featured: featured
+      })
+    });
     axios.get('/api/users/totalUsers').then(res => {
       this.setState({totalUsers: res.data})
-    })
+    });
+    
   }
 
   categoryUpdate(key) {
-    this.setState({category: key})
+    const updateFilter = this.state.campaigns.filter((e) => e.category === key)
+    this.setState({category: key, campaignSort: updateFilter})
   }
   render() {
     console.log(this.state)
-    const { campaigns, totalUsers, category } = this.state
+    const { campaigns, totalUsers, category, featured, campaignSort } = this.state
     return (
       <div>
         <Header />
@@ -49,8 +60,36 @@ export default class Dashboard extends Component {
               <span className={category === 'Games' ? 'active' : 'not-active'} onClick={() => this.categoryUpdate('Games')}>Games</span>
             </div>
           </div>
+          <div className="dashboard-featured-container">
+            <div className="top-featured">
+            <h4>FEATURED PROJECT</h4>
+            {campaigns.length > 0 ?
+                <iframe width="600" height="400" src={featured.video} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
+                : null}
+
+            </div>
+            {campaignSort.length > 0 ?
+            <div className="other-featured-list">
+              {campaignSort.map((item) => {
+                return (
+                  <div key={item.id}>
+                    <img src="https://itefix.net/sites/default/files/not_available.png"/>
+                    <div className="item-description">
+                      <p className="dashboard-title">{item.title}</p>
+                      <p className="dashboard-desc">Funding Goal: ${item.fullyFunded}</p>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+            : <p>Loading...</p>}
+          </div>
         <Footer />
       </div>
     )
   }
 }
+
+
+
+

@@ -25,7 +25,7 @@ class Header extends Component{
       <div>
         <ul className="header-container-left">
           <Link to="/"><li>Brand</li></Link>
-          <Link to="/dashboard"><li>Dashboad</li></Link>
+          <Link to="/dashboard"><li>Dashboard</li></Link>
           <li>Projects</li>
         </ul>
       </div>
