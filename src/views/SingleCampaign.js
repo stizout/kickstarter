@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import Header from '../Header';
 import Footer from '../Footer';
+import Checkout from '../Checkout';
 
 class SingleCampaign extends Component {
   constructor() {
@@ -42,10 +43,30 @@ class SingleCampaign extends Component {
       amountToContribute: e.target.value
     })
   }
+
+  updateState = (data) => {
+    this.setState({campaign: data})
+  }
   render() {
-    console.log(this.state)
-    const { campaign, user, today, endDate, contribute } = this.state
+    console.log(this.state.campaign)
+    const { campaign, user, today, endDate,
+      contribute, amountToContribute } = this.state
     const day = 24*60*60*1000
+    let totalDonations
+    let totalBackers
+    let lineGraph
+    if(campaign) {
+      if(campaign.donation.length > 0) {
+        totalDonations = campaign.donation.map((item) => item.amount).reduce((a,b) => a + b)
+        totalBackers = campaign.donation.length
+        lineGraph = {
+          backgroundColor: 'purple',
+          height: '25px',
+          width: (totalDonations/this.state.campaign.fullyFunded * 100) + '%',
+        }
+      }
+    }
+    console.log(lineGraph)
     return (
       this.state.campaign ?
       <div className="single-container">
@@ -65,9 +86,10 @@ class SingleCampaign extends Component {
             allow="autoplay; encrypted-media" allowFullScreen>
           </iframe>
           <div className="single-goal-info">
-            <p>Current Dontation Value</p>
+            <p style={lineGraph}>1</p>
+            <p>Total Pledges: ${totalDonations}</p>
             <p>Goal: ${campaign.fullyFunded}</p>
-            <p>Current Number of Backers</p>
+            <p>Backers: {totalBackers}</p>
             <p>Days left: {Math.round(Math.abs(today - endDate) / (day))}</p>
             <button onClick={this.addContribute}>Contribute</button>
             {contribute ?
@@ -78,7 +100,13 @@ class SingleCampaign extends Component {
                 <option value={50}>$50</option>
                 <option value={100}>$100</option>
               </select>
-                <button>Fund!</button>
+                <Checkout 
+                  name="The Real Kickstarter"
+                  amount={amountToContribute}
+                  description="Title of Campaign Here"
+                  id={this.props.match.params.id}
+                  updateState={this.updateState}
+                />
             </div>
               : null}
           </div>

@@ -9,7 +9,15 @@ const CampaignSchema = new Schema({
   },
   description: String,
   fullyFunded: Number,
-  donation: Number,
+  donation: [
+    {
+      user: {
+        type: Schema.Types.ObjectId,
+        ref: 'users'
+      },
+      amount: Number
+    }
+  ],
   likes: [
     {
       user: {

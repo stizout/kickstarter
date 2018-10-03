@@ -511,6 +511,16 @@ body {
   margin-top: 40px;
 }
 
+.single-contribute {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.single-contribute div {
+  margin-left: 40px;
+}
+
 footer {
   height: 100px;
   background-color: purple;

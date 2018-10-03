@@ -43,9 +43,20 @@ router.get('/:id', (req, res) => {
   Campaign.findById(req.params.id).then(campaign => {
     User.findById(campaign.user).then(user => {
       let campaignData = [campaign, user]
-      res.json(campaignData)
-    })
-  })
-})
+      res.json(campaignData);
+    });
+  });
+});
+
+router.post('/:id/donate', passport.authenticate('jwt', {session: false}), (req, res) => {
+  const { amount } = req.body
+  console.log(req.params.id, amount/100)
+  Campaign.findById(req.params.id).then(campaign => {
+    campaign.donation.unshift({user: req.user.id, amount: amount/100})
+    campaign.save().then(campaign => {
+      res.json(campaign);
+    });
+  });
+});
 
 module.exports = router
