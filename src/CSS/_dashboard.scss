@@ -1,4 +1,6 @@
-
+body {
+  min-height: 100vh;
+}
 .dashboard-header-stats {
   height: 100px;
   width: 90%;
@@ -53,6 +55,7 @@
 .dashboard-featured-container {
   display: flex;
   justify-content: center;
+  margin-bottom: 100px;
   .top-featured {
     margin-left: 50px;
     margin-top: 20px;
