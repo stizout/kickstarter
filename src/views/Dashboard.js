@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Header from '../Header';
 import Footer from '../Footer';
@@ -72,8 +73,8 @@ export default class Dashboard extends Component {
             <div className="other-featured-list">
               {campaignSort.map((item) => {
                 return (
-                  <div key={item.id}>
-                    <img src="https://itefix.net/sites/default/files/not_available.png"/>
+                  <div key={item._id}>
+                    <Link to={`/campaigns/${item._id}`}><img src="https://itefix.net/sites/default/files/not_available.png"/></Link>
                     <div className="item-description">
                       <p className="dashboard-title">{item.title}</p>
                       <p className="dashboard-desc">Funding Goal: ${item.fullyFunded}</p>

@@ -39,4 +39,13 @@ router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
   });
 });
 
+router.get('/:id', (req, res) => {
+  Campaign.findById(req.params.id).then(campaign => {
+    User.findById(campaign.user).then(user => {
+      let campaignData = [campaign, user]
+      res.json(campaignData)
+    })
+  })
+})
+
 module.exports = router
