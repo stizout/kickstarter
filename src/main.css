@@ -494,31 +494,30 @@ body {
   width: 500px;
 }
 
-.single-goal-info :nth-child(2) {
-  font-size: 20px;
-  text-align: center;
+.single-goal-info span {
+  width: 100%;
+  border: 1px solid black;
+  margin: 0;
+  margin-bottom: 5px;
 }
 
-.single-goal-info :nth-child(1), .single-goal-info :nth-child(3), .single-goal-info :nth-child(4) {
+.single-goal-info > p {
+  text-align: center;
   font-size: 24px;
-  margin: 5px 0px;
+  margin: 8px 0;
 }
 
 .single-goal-info button {
   padding: 10px;
   border-radius: 10px;
   width: 100%;
-  margin-top: 40px;
 }
 
 .single-contribute {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-.single-contribute div {
-  margin-left: 40px;
+  margin: 10px;
 }
 
 footer {

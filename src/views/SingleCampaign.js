@@ -15,6 +15,7 @@ class SingleCampaign extends Component {
       endDate: null,
       contribute: false,
       amountToContribute: null,
+      donation: null,
     }
   }
   componentDidMount() {
@@ -45,12 +46,12 @@ class SingleCampaign extends Component {
   }
 
   updateState = (data) => {
-    this.setState({campaign: data})
+    this.setState({campaign: data, donation: true})
   }
   render() {
     console.log(this.state.campaign)
     const { campaign, user, today, endDate,
-      contribute, amountToContribute } = this.state
+      contribute, amountToContribute, donation } = this.state
     const day = 24*60*60*1000
     let totalDonations
     let totalBackers
@@ -63,10 +64,10 @@ class SingleCampaign extends Component {
           backgroundColor: 'purple',
           height: '25px',
           width: (totalDonations/this.state.campaign.fullyFunded * 100) + '%',
+          border: '1px solid black'
         }
       }
     }
-    console.log(lineGraph)
     return (
       this.state.campaign ?
       <div className="single-container">
@@ -86,7 +87,8 @@ class SingleCampaign extends Component {
             allow="autoplay; encrypted-media" allowFullScreen>
           </iframe>
           <div className="single-goal-info">
-            <p style={lineGraph}>1</p>
+            {donation && <p>Thanks for the donation!</p>}
+            <span><p style={lineGraph}></p></span>
             <p>Total Pledges: ${totalDonations}</p>
             <p>Goal: ${campaign.fullyFunded}</p>
             <p>Backers: {totalBackers}</p>
@@ -103,7 +105,7 @@ class SingleCampaign extends Component {
                 <Checkout 
                   name="The Real Kickstarter"
                   amount={amountToContribute}
-                  description="Title of Campaign Here"
+                  description={campaign.title}
                   id={this.props.match.params.id}
                   updateState={this.updateState}
                 />

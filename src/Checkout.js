@@ -36,11 +36,11 @@ const Checkout = props => {
       stripeKey={STRIPE_PUBLISHABLE}
     />
     return (
-      <div id="stripe-button">
+      <div>
         <Checkout 
           name="The Real Kickstarter"
           amount={props.amount}
-          description="Title of Campaign Here"
+          description={props.description}
         />
       </div>
     )

@@ -31,25 +31,25 @@
   flex-direction: column;
   align-items: center;
   width: 500px;
-  :nth-child(2) {
-    font-size: 20px;
-    text-align: center;
+  span {
+    width: 100%;
+    border: 1px solid black;
+    margin: 0;
+    margin-bottom: 5px;
   }
-  :nth-child(1), :nth-child(3), :nth-child(4) {
+  > p {
+    text-align: center;
     font-size: 24px;
-    margin: 5px 0px;
+    margin: 8px 0;
   }
   button {
     padding: 10px;
     border-radius: 10px;
     width: 100%;
-    margin-top: 40px;
   }
 }
 
 .single-contribute {
   display: flex;
-  div {
-    margin-left: 40px;
-  }
+  margin: 10px
 }
