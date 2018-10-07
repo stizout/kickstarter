@@ -20,14 +20,35 @@ class Header extends Component{
       <Link to="/register"><li id="register-link">Register</li></Link>
     </ul>
     )
+
+    const loggedInEntre = (
+      <ul className="header-container-left">
+        <Link to="/"><li>Brand</li></Link>
+        <Link to="/dashboard"><li>Dashboard</li></Link>
+      <li>Add a Project</li>
+    </ul>
+    )
+    const loggedInBacker = (
+      <ul className="header-container-left">
+        <Link to="/"><li>Brand</li></Link>
+        <Link to="/dashboard"><li>Dashboard</li></Link>
+      <li>My Backed Projects</li>
+    </ul>
+    )
+    const notLoggedIn = (
+      <ul className="header-container-left">
+        <Link to="/"><li>Brand</li></Link>
+        <Link to="/dashboard"><li>Dashboard</li></Link>
+      </ul>
+    )
+    console.log(this.props.auth);
   return (
     <header>
       <div>
-        <ul className="header-container-left">
-          <Link to="/"><li>Brand</li></Link>
-          <Link to="/dashboard"><li>Dashboard</li></Link>
-          <li>Projects</li>
-        </ul>
+        {this.props.auth.isLoggedIn ?
+          this.props.auth.user.type === 'backer' ? loggedInBacker : loggedInEntre
+        : notLoggedIn 
+        }
       </div>
       <div>
         {this.props.auth.isLoggedIn ? loggedInLinks : notLoggedInLinks}

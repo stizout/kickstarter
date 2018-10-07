@@ -24,11 +24,17 @@ export const loginUser = (userData, push) => dispatch => {
     setAuthHeader(token)
 
     const decoded = jwt_decode(token);
+    console.log(decoded)
     dispatch(setUserInRedux(decoded))
   }).catch(err => dispatch({
     type: GET_ERRORS,
     payload: err.response.data
   }));
+}
+export const getUserType = (userData) => {
+  axios.get('/api/users/type', userData).then(res => {
+    res.json(res.data)
+  })
 }
 
 export const setUserInRedux = (decoded) => {
@@ -37,6 +43,7 @@ export const setUserInRedux = (decoded) => {
     payload: decoded
   }
 }
+
 
 const logoutUserInRedux = () => {
   return {

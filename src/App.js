@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { setUserInRedux, logoutUser } from './ducks/actions/authorizationActions';
+import { setUserInRedux, logoutUser, getUserType } from './ducks/actions/authorizationActions';
 import jwt_decode from 'jwt-decode';
 import setAuthHeader from './setAuthHeader';
 import store from './ducks/store';
@@ -50,6 +50,7 @@ const Home = () => (
 if(localStorage.jwtToken) {
   setAuthHeader(localStorage.jwtToken);
   const decoded = jwt_decode(localStorage.jwtToken)
+  store.dispatch(getUserType(decoded.id));
 
   store.dispatch(setUserInRedux(decoded))
   const currentTime = Date.now() / 1000;

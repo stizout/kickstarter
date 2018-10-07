@@ -17,7 +17,7 @@ router.get('/totalUsers', (req, res) => {
 });
 
 router.post('/register', (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, type } = req.body;
   const { errors, isValid } = validateRegistration(req.body)
 
   if(!isValid) {
@@ -31,6 +31,7 @@ router.post('/register', (req, res) => {
       return res.json({msg: 'Email already exists'});
     } else {
       let newUser = new User({
+        type,
         name,
         email,
         password

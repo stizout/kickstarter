@@ -15,7 +15,16 @@
 
 .form-container {
   @extend %flex-column;
-  input {
+  span {
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 20px;
+    margin-top: 25px;
+  }
+  .input {
     margin: 10px 0;
     width: 500px;
     height: 30px;

@@ -10,6 +10,7 @@ const isEmpty = val => {
 
 module.exports = function validateRegistration(data) {
   let errors = {};
+  data.type = isEmpty(data.type) ? '' : data.type
   data.name = isEmpty(data.name) ? '' : data.name
   data.email = isEmpty(data.email) ? '' : data.email
   data.password = isEmpty(data.password) ? '' : data.password
@@ -23,6 +24,7 @@ module.exports = function validateRegistration(data) {
     errors.password = 'Password must be at least 8 characters'
   }
   if(!Validator.isEmail(data.email)) errors.email = "Must be a valid email"
+  if(Validator.isEmpty(data.type)) errors.type = 'Type of Account is required'
   if(Validator.isEmpty(data.name)) errors.name = 'Name is required'
   if(Validator.isEmpty(data.password)) errors.password = 'Password is required'
   if(Validator.isEmpty(data.password2)) errors.password2 = 'Must confirm password'

@@ -16,6 +16,7 @@ class Registration extends Component {
       password: '',
       password2: '',
       errors: {},
+      type: null,
     }
   }
 
@@ -32,14 +33,19 @@ class Registration extends Component {
   }
   submit = (e) => {
     e.preventDefault();
-    const { name, email, password, password2 } = this.state
+    const { name, email, password, password2, type } = this.state
     let newUser = {
+      type,
       name,
       email,
       password,
       password2
     }
     this.props.registerUser(newUser, this.props.history);
+  }
+
+  updateType = (e) => {
+    this.setState({type: e.target.value})
   }
 
   render() {
@@ -50,29 +56,35 @@ class Registration extends Component {
         <Header />
         <h1 className="reg-log-header">Register</h1>
         <form className="form-container" onSubmit={this.submit}>
+          <span>
+            <label>Why are you joining?</label>
+              <label>Backer <input type='radio' value="backer" name="type" onClick={this.updateType}/></label>
+              <label>Entrepreneur <input type='radio'value="entrepreneur" name="type" onClick={this.updateType}/></label>
+          </span>
+          {errors.type && (<div className="invalid-feedback">{errors.type}</div>)}
           <input 
             onChange={this.handleInputs} 
             name="name" 
             placeholder="Full Name"
-            className={classnames({'is-invalid': errors.name})}
+            className={classnames("input",{'is-invalid': errors.name})}
           />
           {errors.name && (<div className="invalid-feedback">{errors.name}</div>)}
           <input 
             onChange={this.handleInputs} name="email" 
             placeholder="Email Address"
-            className={classnames({'is-invalid': errors.email})}
+            className={classnames("input",{'is-invalid': errors.email})}
           />
           {errors.email && (<div className="invalid-feedback">{errors.email}</div>)}
           <input 
             onChange={this.handleInputs} type="text" 
             name="password" placeholder="Password"
-            className={classnames({'is-invalid': errors.email})}
+            className={classnames("input", {'is-invalid': errors.email})}
           />
           {errors.password && (<div className="invalid-feedback">{errors.password}</div>)}
           <input 
             onChange={this.handleInputs} type="text"
             name="password2" placeholder="Verify Password"
-            className={classnames({'is-invalid': errors.password})}
+            className={classnames("input", {'is-invalid': errors.password})}
           />
           {errors.password2 && (<div className="invalid-feedback">{errors.password2}</div>)}
           <input type="submit" className="submit-button"/>
