@@ -50,9 +50,8 @@ const Home = () => (
 if(localStorage.jwtToken) {
   setAuthHeader(localStorage.jwtToken);
   const decoded = jwt_decode(localStorage.jwtToken)
-  store.dispatch(getUserType(decoded.id));
-
   store.dispatch(setUserInRedux(decoded))
+  store.dispatch(getUserType(decoded.id))
   const currentTime = Date.now() / 1000;
   if(decoded.exp < currentTime) {
     store.dispatch(logoutUser());

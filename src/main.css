@@ -516,6 +516,7 @@ body {
 .single-goal-info span {
   width: 100%;
   border: 1px solid black;
+  min-height: 25px;
   margin: 0;
   margin-bottom: 5px;
 }

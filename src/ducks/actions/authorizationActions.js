@@ -4,6 +4,7 @@ import setAuthHeader from '../../setAuthHeader';
 const GET_ERRORS = 'GET_ERRORS'
 const SET_USER_IN_REDUX = 'SET_USER_IN_REDUX'
 const LOGOUT_USER_IN_REDUX = 'LOGOUT_USER_IN_REDUX'
+const SET_USER_TYPE = 'SET_USER_TYPE'
 
 export const registerUser = (userData, history) => dispatch => {
   console.log('hit registration button')
@@ -17,6 +18,7 @@ export const registerUser = (userData, history) => dispatch => {
 
 export const loginUser = (userData, push) => dispatch => {
   axios.post('/api/users/login', userData).then(res => {
+    console.log(res.data)
     const { token } = res.data
     push('/dashboard');
     localStorage.setItem('jwtToken', token);
@@ -26,15 +28,23 @@ export const loginUser = (userData, push) => dispatch => {
     const decoded = jwt_decode(token);
     console.log(decoded)
     dispatch(setUserInRedux(decoded))
+    dispatch( getUserType(decoded.id) )
   }).catch(err => dispatch({
     type: GET_ERRORS,
-    payload: err.response.data
+    payload: err
   }));
 }
-export const getUserType = (userData) => {
+export const getUserType = (userData) => dispatch => {
   axios.get('/api/users/type', userData).then(res => {
-    res.json(res.data)
-  })
+    dispatch(setUserType(res.data));
+  }).catch(err => console.log(err))
+}
+
+export const setUserType = (type) => {
+  return {
+    type: SET_USER_TYPE,
+    payload: type
+  }
 }
 
 export const setUserInRedux = (decoded) => {

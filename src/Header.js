@@ -32,8 +32,8 @@ class Header extends Component{
       <ul className="header-container-left">
         <Link to="/"><li>Brand</li></Link>
         <Link to="/dashboard"><li>Dashboard</li></Link>
-      <li>My Backed Projects</li>
-    </ul>
+        <li>Backed Projects</li>
+      </ul>
     )
     const notLoggedIn = (
       <ul className="header-container-left">
@@ -46,7 +46,7 @@ class Header extends Component{
     <header>
       <div>
         {this.props.auth.isLoggedIn ?
-          this.props.auth.user.type === 'backer' ? loggedInBacker : loggedInEntre
+          this.props.auth.type === "backer" ? loggedInBacker : loggedInEntre
         : notLoggedIn 
         }
       </div>
