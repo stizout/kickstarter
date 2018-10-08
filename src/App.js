@@ -32,6 +32,10 @@ const SingleCampaign = Loadable({
   loader: () => import('./views/SingleCampaign'),
   loading: Loading
 });
+const AddCampaign = Loadable({
+  loader: () => import('./views/AddCampaign'),
+  loading: Loading
+});
 
 const Home = () => (
   <Provider store={store}>
@@ -41,6 +45,7 @@ const Home = () => (
         <Route path="/register" component={Registration}/>
         <Route path="/login" component={Login}/>
         <Route path="/dashboard" component={Dashboard}/>
+        <Route path="/campaigns/add" exact component={AddCampaign} />
         <Route path="/campaigns/:id" component={SingleCampaign}/>
       </Switch>
     </Router>

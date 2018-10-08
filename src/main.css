@@ -324,6 +324,7 @@ header .header-container-right a:nth-child(2) {
 .form-container .submit-button {
   width: 300px;
   padding: 25px;
+  margin: 10px 0;
 }
 
 body {
@@ -538,6 +539,18 @@ body {
   display: -ms-flexbox;
   display: flex;
   margin: 10px;
+}
+
+.add-campaign-container {
+  min-height: 81.5vh;
+}
+
+.form-container .invalid-feedback {
+  color: red;
+}
+
+.form-container .is-invalid {
+  border: 1px solid red;
 }
 
 footer {

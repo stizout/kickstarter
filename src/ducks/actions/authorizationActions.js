@@ -18,7 +18,6 @@ export const registerUser = (userData, history) => dispatch => {
 
 export const loginUser = (userData, push) => dispatch => {
   axios.post('/api/users/login', userData).then(res => {
-    console.log(res.data)
     const { token } = res.data
     push('/dashboard');
     localStorage.setItem('jwtToken', token);
@@ -31,7 +30,7 @@ export const loginUser = (userData, push) => dispatch => {
     dispatch( getUserType(decoded.id) )
   }).catch(err => dispatch({
     type: GET_ERRORS,
-    payload: err
+    payload: err.response.data
   }));
 }
 export const getUserType = (userData) => dispatch => {

@@ -25,7 +25,7 @@ class Header extends Component{
       <ul className="header-container-left">
         <Link to="/"><li>Brand</li></Link>
         <Link to="/dashboard"><li>Dashboard</li></Link>
-      <li>Add a Project</li>
+        <Link to='/campaigns/add'><li>Add a Project</li></Link>
     </ul>
     )
     const loggedInBacker = (
