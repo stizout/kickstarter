@@ -63,22 +63,23 @@ export default class Dashboard extends Component {
           </div>
           <div className="dashboard-featured-container">
             <div className="top-featured">
-            <h4>FEATURED PROJECT</h4>
-            {campaigns.length > 0 ?
+              <span>
+                <h4>Featured KickStarter Project</h4>
+              {campaigns.length > 0 ?
                 <iframe width="600" height="400" src={featured.video} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
                 : null}
-
+              </span>
             </div>
             {campaignSort.length > 0 ?
             <div className="other-featured-list">
               {campaignSort.map((item) => {
                 return (
-                  <div key={item._id}>
-                    <Link to={`/campaigns/${item._id}`}><img src="https://itefix.net/sites/default/files/not_available.png"/></Link>
-                    <div className="item-description">
-                      <p className="dashboard-title">{item.title}</p>
-                      <p className="dashboard-desc">Funding Goal: ${item.fullyFunded}</p>
-                    </div>
+                  <div key={item._id} className="item-container">
+                      <Link to={`/campaigns/${item._id}`}><img src="https://itefix.net/sites/default/files/not_available.png"/></Link>
+                      <div className="item-description">
+                        <p className="dashboard-title">{item.title}</p>
+                        <p className="dashboard-desc">Funding Goal: ${item.fullyFunded}</p>
+                      </div>
                   </div>
                 )
               })}

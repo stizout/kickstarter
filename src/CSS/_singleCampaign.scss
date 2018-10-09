@@ -1,5 +1,6 @@
 .single-container {
   min-height: 100vh;
+  margin-top: 90px;
 }
 
 .single-header-container {
@@ -20,10 +21,8 @@
 
 .single-body-container {
   display: flex;
-  justify-content: space-between;
-  width: 80%;
-  margin: 100px auto;
-  margin-top: 50px;
+  justify-content: space-around;
+  margin: 50px auto;
 }
 
 .single-goal-info {

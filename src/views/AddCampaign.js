@@ -89,10 +89,10 @@ class AddCampaign extends Component {
               onChange={this.handleInputs} 
               name="category">
               <option>-- Select --</option>
-              <option value="tech">Tech</option>
-              <option value="art">Art</option>
-              <option value="film">Film</option>
-              <option value="games">Games</option>
+              <option value="Tech">Tech</option>
+              <option value="Art">Art</option>
+              <option value="Film">Film</option>
+              <option value="Games">Games</option>
             </select>
             {errors.category && <div className="invalid-feedback">{errors.category}</div>}
             <input 

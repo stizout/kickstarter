@@ -50,10 +50,11 @@ class Login extends Component {
     console.log(this.state)
     const { errors } = this.state
     return (
-      <div className="login-container">
+      <div>
         <Header />
-        <h1 className="reg-log-header">Login</h1>
         <div>
+        <div className="login-container">
+          <h1 className="reg-log-header">Login</h1>
           <form className="form-container" onSubmit={this.submit}>
             <input 
               onChange={this.handleInputs} 
@@ -72,6 +73,7 @@ class Login extends Component {
               {errors.password && <div className="invalid-feedback">{errors.password}</div>}
             <input type="submit" className="submit-button"/>
           </form>
+        </div>
         </div>
         <Footer />
       </div>

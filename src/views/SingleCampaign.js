@@ -61,7 +61,7 @@ class SingleCampaign extends Component {
         totalDonations = campaign.donation.map((item) => item.amount).reduce((a,b) => a + b)
         totalBackers = campaign.donation.length
         lineGraph = {
-          backgroundColor: 'purple',
+          backgroundColor: '#66FCF1',
           height: '25px',
           width: (totalDonations/this.state.campaign.fullyFunded * 100) + '%',
           border: '1px solid black'

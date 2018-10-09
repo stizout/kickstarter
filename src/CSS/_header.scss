@@ -3,11 +3,17 @@ header {
   display: flex;
   height: 70px;
   padding: 0 15px;
-  margin-left: 0;
   justify-content: space-between;
   align-items: center;
-  background-color: lightcoral;
-  font-size: 24px;
+  background-color: #202833;
+  font-size: 30px;
+  color: #45A29E;
+  font-weight: bold;
+  border-bottom: 1px solid #66FCF1;
+  text-shadow: 1px 2px 4px black;
+  position: fixed;
+  top: 0;
+  width: 100%;
   a {
     color: inherit;
     text-decoration: none;
@@ -16,22 +22,17 @@ header {
   .header-container-left {
     display: flex;
     list-style-type: none;
-    a:nth-child(2) {
-      margin: 0 10px;
+    li {
+      margin: 0 5px;
     }
   }
   .header-container-right {
     display: flex;
     list-style-type: none;
+    margin-right: 20px;
     li {
       cursor: pointer;
-    }
-    li:nth-child(2) {
-      margin: 0 10px;
-      cursor: pointer;
-    }
-    a:nth-child(2) {
-      margin: 0 10px;
+      margin: 0 5px;
     }
   }
 }

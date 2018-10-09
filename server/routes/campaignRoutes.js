@@ -19,11 +19,13 @@ router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
   const { title, description, fullyFunded, endDate, video, category} = req.body
   const { errors, isValid } = campaignValidator(req.body)
   if(!isValid) {
+    console.log('hit !isValid')
     return res.status(400).json(errors)
   }
 
   Campaign.findOne({user: req.user.id}).then(campaign => {
     if(campaign) {
+      console.log('hit found campaign')
       return res.status(400).json({msg: 'You Already have a campaign'});
     }
     let newCampaign = {
