@@ -87,5 +87,15 @@ router.get('/details', passport.authenticate('jwt', {session: false}), (req, res
   res.json(req.user);
 });
 
+router.post('/picture', passport.authenticate('jwt', {session: false}), (req, res) => {
+  console.log(req.body)
+  User.findById(req.user.id).then(user => {
+    user.image = req.body.picture
+    user.save().then(user => {
+      res.json(user);
+    });
+  });
+});
+
 
 module.exports = router;

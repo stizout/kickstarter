@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import { connect } from 'react-redux';
 import Modal from './Modal';
 import Header from '../Header';
@@ -9,6 +10,8 @@ class Profile extends Component {
     super();
     this.state = {
       showModal: false,
+      picture: '',
+      image: null
     }
   }
 
@@ -17,30 +20,42 @@ class Profile extends Component {
       this.props.history.push('/login');
     }
   }
-
   showModal = () => {
     this.setState({
       showModal: !this.state.showModal
     })
   }
 
+  handleInputs= (e) => {
+    this.setState({
+      picture: e.target.value
+    })
+  }
+
+  submitPicture = () => {
+    axios.post('/api/users/picture', {...this.state}).then(
+      console.log('hello')
+    )
+  }
+
 
   render() {
     console.log(this.state)
+    console.log(this.props.auth.type.image)
     const { showModal } = this.state
     return (
       <div>
         <Header />
           <div className="profile-container">
-            <h1>User Profile: {this.props.auth.user.name}</h1>
+            <h1>User Profile: {this.props.auth.user.type}</h1>
             <div className="profile-top-container">
               <div className="profile-details">
-                {!this.props.auth.user.image ?
-                <img src="https://engineering.jhu.edu/hltcoe/wp-content/uploads/sites/92/2016/11/male-no-image-1.jpg" alt="No Image Available" onClick={this.showModal}/>
-                : <img src={this.props.auth.user.image}/>
-                }
-              </div>
-              <Modal show={showModal} showModal={this.showModal}/>
+                <img src="https://engineering.jhu.edu/hltcoe/wp-content/uploads/sites/92/2016/11/male-no-image-1.jpg" alt="No Image Available" onClick={this.showModal}/>                </div>
+              <Modal show={showModal} showModal={this.showModal}>
+                <h2>Hello</h2>
+                <input onChange={this.handleInputs}/>
+                <button onClick={this.submitPicture}>Add Picture!</button>
+              </Modal>
               <div className="profile-main">
                 <p>Lorem Ipsum is simply dummy text of the printing and 
                   typesetting industry. Lorem Ipsum has been the industry's 
