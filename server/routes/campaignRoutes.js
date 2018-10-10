@@ -62,9 +62,10 @@ router.post('/:id/donate', passport.authenticate('jwt', {session: false}), (req,
           title: campaign.title,
           amount: amount/100
         });
-        user.save();
+        user.save().then(() => {
+          res.json(campaign);
+        });
       });
-      res.json(campaign);
     });
   });
 });

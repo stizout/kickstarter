@@ -100,6 +100,7 @@ router.post('/picture', passport.authenticate('jwt', {session: false}), (req, re
 
 router.get('/info', passport.authenticate('jwt', {session: false}), (req, res) => {
   User.findById(req.user.id).then(user => {
+    console.log(user)
     var donations = user.donations.map((don) => don);
     res.json(donations);
   })

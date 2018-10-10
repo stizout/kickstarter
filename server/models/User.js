@@ -10,10 +10,7 @@ const UserSchema = new Schema({
   type: String,
   donations: [
     {
-      campaign: {
-        type: Schema.Types.ObjectId,
-        ref: 'campaigns'
-      },
+      campaign: String,
       title: String,
       amount: Number,
     }

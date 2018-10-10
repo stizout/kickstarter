@@ -1,28 +1,50 @@
 
 .profile-container {
   min-height: 80vh;
-  margin-top: 90px;
 }
 
 .profile-top-container {
   display: flex;
   justify-content: center;
   min-height: 500px;
+  width: 90%;
+  margin-top: 150px;
 }
 
 .profile-details {
   flex: 1;
-  background-color: red;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
   img {
+    margin: 20px 0;
     max-height: 300px;
+    cursor: pointer;
+  }
+  h4 {
+    font-size: 24px;
+  }
+  h4:nth-child(3) {
+    margin: 5px 0;
   }
 }
 
 .profile-main {
-  flex: 3;
-  background-color: yellow;
+  flex: 1;
+  text-align: center;
+  border: 1px solid #66FCF1;
+  h1 {
+    font-size: 48px;
+    margin: 50px 0;
+  }
+  h2 {
+    font-size: 36px;
+  }
 }
-
+.donation-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
