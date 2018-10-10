@@ -479,10 +479,10 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 50%;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  width: 80%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   margin-top: 50px;
 }
 
@@ -520,12 +520,11 @@ body {
   width: 500px;
 }
 
-.single-goal-info span {
+.single-goal-info .donation-line {
   width: 100%;
   border: 1px solid black;
   min-height: 25px;
   margin: 0;
-  margin-bottom: 5px;
 }
 
 .single-goal-info > p {
@@ -534,17 +533,41 @@ body {
   margin: 8px 0;
 }
 
-.single-goal-info button {
+.single-goal-info .button {
   padding: 10px;
   border-radius: 10px;
-  width: 100%;
+  width: 80%;
+  background-color: #1F2833;
+  color: white;
+  border: 1px solid #66FCF1;
+  font-size: 18px;
 }
 
 .single-contribute {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: 10px;
+}
+
+.single-contribute select {
+  height: 30px;
+  width: 118px;
+  margin-right: 10px;
+}
+
+.stripe-button {
+  background-color: purple;
+}
+
+.button:hover {
+  background-color: #66FCF1;
+  color: #1F2833;
+  border: 1px solid #1F2833;
+  cursor: pointer;
 }
 
 .add-campaign-container {

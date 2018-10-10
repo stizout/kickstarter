@@ -2,7 +2,6 @@ const InitialState = {
   isLoggedIn: false,
   user: {},
   errors: {},
-  type: {},
   userDetails: {},
 }
 const SET_USER_IN_REDUX = 'SET_USER_IN_REDUX'
@@ -17,7 +16,7 @@ export default function(state = InitialState, action) {
     case LOGOUT_USER_IN_REDUX:
       return action.payload
     case SET_USER_TYPE:
-      return {...state, type: action.payload}
+      return {...state, userDetails: action.payload}
     default: return state
   }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux';
+import { getUserType } from '../ducks/actions/authorizationActions';
 import Modal from './Modal';
 import Header from '../Header';
 import Footer from '../Footer';
@@ -33,24 +34,27 @@ class Profile extends Component {
   }
 
   submitPicture = () => {
-    axios.post('/api/users/picture', {...this.state}).then(
-      console.log('hello')
-    )
+    axios.post('/api/users/picture', {...this.state}).then(() => {
+      this.props.getUserType(this.props.auth.user.id)
+      this.showModal();
+    });
   }
 
 
   render() {
     console.log(this.state)
-    console.log(this.props.auth.type.image)
     const { showModal } = this.state
     return (
       <div>
         <Header />
           <div className="profile-container">
-            <h1>User Profile: {this.props.auth.user.type}</h1>
+            <h1>User Profile: {this.props.auth.user.name}</h1>
             <div className="profile-top-container">
               <div className="profile-details">
-                <img src="https://engineering.jhu.edu/hltcoe/wp-content/uploads/sites/92/2016/11/male-no-image-1.jpg" alt="No Image Available" onClick={this.showModal}/>                </div>
+                {this.props.auth.userDetails.image ?
+                <img src={this.props.auth.userDetails.image} alt="profile" />
+                : <img src="http://proconsultancies.org/wimages/icon-user-default.png" alt="default" onClick={this.showModal}/>}
+                </div>
               <Modal show={showModal} showModal={this.showModal}>
                 <h2>Hello</h2>
                 <input onChange={this.handleInputs}/>
@@ -78,7 +82,7 @@ class Profile extends Component {
 
 const mapStateToProps = state => ({
   auth: state.auth
-})
+});
 
 
-export default connect(mapStateToProps, {})(Profile)
+export default connect(mapStateToProps, { getUserType })(Profile)

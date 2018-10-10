@@ -12,7 +12,7 @@ class Header extends Component{
     const loggedInLinks = (
       <ul className="header-container-right">
       <Link to="/profile"><li>Profile</li></Link>
-      <li onClick={this.logout}>Logout</li>
+      <Link to='/dashboard'><li onClick={this.logout}>Logout</li></Link>
     </ul>
     )
     const notLoggedInLinks = (
@@ -46,8 +46,8 @@ class Header extends Component{
   return (
     <header>
       <div>
-        {this.props.auth.isLoggedIn ?
-          this.props.auth.type === "backer" ? loggedInBacker : loggedInEntre
+        {this.props.auth.userDetails ?
+          this.props.auth.userDetails.type === "backer" ? loggedInBacker : loggedInEntre
         : notLoggedIn 
         }
       </div>

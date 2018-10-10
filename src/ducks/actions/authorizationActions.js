@@ -25,8 +25,8 @@ export const loginUser = (userData, push) => dispatch => {
     setAuthHeader(token)
 
     const decoded = jwt_decode(token);
-    dispatch(setUserInRedux(decoded))
     dispatch( getUserType(decoded.id) )
+    dispatch(setUserInRedux(decoded))
   }).catch(err => dispatch({
     type: GET_ERRORS,
     payload: err.response.data

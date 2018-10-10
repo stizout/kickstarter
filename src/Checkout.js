@@ -41,6 +41,7 @@ const Checkout = props => {
           name="The Real Kickstarter"
           amount={props.amount}
           description={props.description}
+          
         />
       </div>
     )

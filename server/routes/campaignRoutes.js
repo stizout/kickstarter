@@ -61,4 +61,21 @@ router.post('/:id/donate', passport.authenticate('jwt', {session: false}), (req,
   });
 });
 
+router.post('/:id/like', passport.authenticate('jwt', {session: false}), (req, res) => {
+  Campaign.findById(req.params.id).then(campaign => {
+    if(campaign.likes.filter(like => like.user == req.user.id).length > 0) {
+      let index = campaign.likes.map(like => like.user.toString()).indexOf(req.user.id)
+      campaign.likes.splice(index, 1);
+      campaign.save().then(campaign => {
+        res.json(campaign);
+      });
+    } else {
+      campaign.likes.push({user: req.user.id});
+      campaign.save().then(campaign => {
+        res.json(campaign);
+      });
+    }
+  });
+});
+
 module.exports = router

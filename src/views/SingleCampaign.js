@@ -48,6 +48,13 @@ class SingleCampaign extends Component {
   updateState = (data) => {
     this.setState({campaign: data, donation: true})
   }
+
+  likeOrDislike = (id) => {
+    console.log(id)
+    axios.post(`/api/campaigns/${id}/like`).then(res => {
+      this.setState({campaign: res.data})
+    });
+  }
   render() {
     console.log(this.state.campaign)
     const { campaign, user, today, endDate,
@@ -88,12 +95,15 @@ class SingleCampaign extends Component {
           </iframe>
           <div className="single-goal-info">
             {donation && <p>Thanks for the donation!</p>}
-            <span><p style={lineGraph}></p></span>
+            <span className="donation-line"><p style={lineGraph}></p></span>
             <p>Total Pledges: ${totalDonations}</p>
             <p>Goal: ${campaign.fullyFunded}</p>
             <p>Backers: {totalBackers}</p>
             <p>Days left: {Math.round(Math.abs(today - endDate) / (day))}</p>
-            <button onClick={this.addContribute}>Contribute</button>
+            <p>Likes: {campaign.likes.length}
+              <button onClick={() => this.likeOrDislike(campaign._id)}>Like</button>
+            </p>
+            <button onClick={this.addContribute} className="button">Contribute</button>
             {contribute ?
             <div className="single-contribute">
               <select onChange={this.updateContributeAmount}>
