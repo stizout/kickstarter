@@ -12,6 +12,7 @@ class Profile extends Component {
     this.state = {
       showModal: false,
       picture: '',
+      donations: [],
       image: null
     }
   }
@@ -20,17 +21,20 @@ class Profile extends Component {
     if(!this.props.auth.isLoggedIn) {
       this.props.history.push('/login');
     }
+    axios.get('/api/users/info').then(res => {
+      this.setState({donations: res.data})
+    });
   }
   showModal = () => {
     this.setState({
       showModal: !this.state.showModal
-    })
+    });
   }
 
   handleInputs= (e) => {
     this.setState({
       picture: e.target.value
-    })
+    });
   }
 
   submitPicture = () => {
@@ -43,7 +47,7 @@ class Profile extends Component {
 
   render() {
     console.log(this.state)
-    const { showModal } = this.state
+    const { showModal, donations } = this.state
     return (
       <div>
         <Header />
@@ -54,6 +58,9 @@ class Profile extends Component {
                 {this.props.auth.userDetails.image ?
                 <img src={this.props.auth.userDetails.image} alt="profile" />
                 : <img src="http://proconsultancies.org/wimages/icon-user-default.png" alt="default" onClick={this.showModal}/>}
+                <h4>{this.props.auth.userDetails.name}</h4>
+                <h4>{this.props.auth.userDetails.email}</h4>
+                <h4>Total Donations: {donations.length}</h4>
                 </div>
               <Modal show={showModal} showModal={this.showModal}>
                 <h2>Hello</h2>
@@ -71,6 +78,15 @@ class Profile extends Component {
                   the release of Letraset sheets containing Lorem Ipsum 
                   passages, and more recently with desktop publishing software 
                   like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                  <h1>My Donations:</h1>
+                  {donations && donations.map((donation, i) => {
+                    return (
+                      <div key={i}>
+                        <h1>{donation.campaign}</h1>
+                        <h2>{donation.amount}</h2>
+                      </div>
+                    )
+                  })}
               </div>
             </div>
           </div>

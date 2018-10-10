@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
+const Campaign = require('../models/Campaign');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
@@ -95,6 +96,13 @@ router.post('/picture', passport.authenticate('jwt', {session: false}), (req, re
       res.json(user);
     });
   });
+});
+
+router.get('/info', passport.authenticate('jwt', {session: false}), (req, res) => {
+  User.findById(req.user.id).then(user => {
+    var donations = user.donations.map((don) => don);
+    res.json(donations);
+  })
 });
 
 

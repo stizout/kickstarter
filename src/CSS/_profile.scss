@@ -13,6 +13,12 @@
 .profile-details {
   flex: 1;
   background-color: red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  img {
+    max-height: 300px;
+  }
 }
 
 .profile-main {

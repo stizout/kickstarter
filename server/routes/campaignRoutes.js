@@ -56,6 +56,14 @@ router.post('/:id/donate', passport.authenticate('jwt', {session: false}), (req,
   Campaign.findById(req.params.id).then(campaign => {
     campaign.donation.unshift({user: req.user.id, amount: amount/100})
     campaign.save().then(campaign => {
+      User.findById(req.user.id).then(user => {
+        user.donations.unshift({
+          campaign: campaign.id,
+          title: campaign.title,
+          amount: amount/100
+        });
+        user.save();
+      });
       res.json(campaign);
     });
   });

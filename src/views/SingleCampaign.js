@@ -123,8 +123,9 @@ class SingleCampaign extends Component {
               : null}
           </div>
         </div>
+          {campaign.description}                     xl, mbmbmbmbmbmbmbmbmbmnmnmmnmnmnmnmnmmnmnmnnm 
         <Footer />
-      </div>
+          cxcççççccccccçccvvv vv              v,bb    </div>
       : <h1>Loading...</h1>
     )
   }
