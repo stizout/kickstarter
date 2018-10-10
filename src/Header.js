@@ -11,6 +11,7 @@ class Header extends Component{
   render() {
     const loggedInLinks = (
       <ul className="header-container-right">
+      <Link to="/profile"><li>Profile</li></Link>
       <li onClick={this.logout}>Logout</li>
     </ul>
     )

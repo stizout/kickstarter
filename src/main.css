@@ -560,6 +560,46 @@ body {
   border: 1px solid red;
 }
 
+.profile-container {
+  min-height: 80vh;
+  margin-top: 90px;
+}
+
+.profile-top-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 500px;
+}
+
+.profile-details {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background-color: red;
+}
+
+.profile-main {
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+  background-color: yellow;
+}
+
+.modal-container {
+  position: fixed;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  min-height: 300px;
+  border-radius: 20px;
+  padding: 25px;
+  background-color: red;
+}
+
 footer {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -3,6 +3,7 @@ const InitialState = {
   user: {},
   errors: {},
   type: {},
+  userDetails: {},
 }
 const SET_USER_IN_REDUX = 'SET_USER_IN_REDUX'
 const LOGOUT_USER_IN_REDUX = 'LOGOUT_USER_IN_REDUX'

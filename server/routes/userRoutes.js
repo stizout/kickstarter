@@ -83,8 +83,8 @@ router.post('/login', (req, res) => {
   });
 });
 
-router.get('/type', passport.authenticate('jwt', {session: false}), (req, res) => {
-  res.json(req.user.type)
+router.get('/details', passport.authenticate('jwt', {session: false}), (req, res) => {
+  res.json(req.user);
 });
 
 

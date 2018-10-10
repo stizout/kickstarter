@@ -34,7 +34,7 @@ export const loginUser = (userData, push) => dispatch => {
   }));
 }
 export const getUserType = (userData) => dispatch => {
-  axios.get('/api/users/type', userData).then(res => {
+  axios.get('/api/users/details', userData).then(res => {
     dispatch(setUserType(res.data));
   }).catch(err => console.log(err))
 }

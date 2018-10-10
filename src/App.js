@@ -36,6 +36,10 @@ const AddCampaign = Loadable({
   loader: () => import('./views/AddCampaign'),
   loading: Loading
 });
+const Profile = Loadable({
+  loader: () => import('./views/Profile'),
+  loading: Loading
+});
 
 const Home = () => (
   <Provider store={store}>
@@ -47,6 +51,7 @@ const Home = () => (
         <Route path="/dashboard" component={Dashboard}/>
         <Route path="/campaigns/add" exact component={AddCampaign} />
         <Route path="/campaigns/:id" component={SingleCampaign}/>
+        <Route path="/profile" component={Profile}/>
       </Switch>
     </Router>
   </Provider>
