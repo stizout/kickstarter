@@ -77,13 +77,13 @@ class Registration extends Component {
           />
           {errors.email && (<div className="invalid-feedback">{errors.email}</div>)}
           <input 
-            onChange={this.handleInputs} type="text" 
+            onChange={this.handleInputs} type="password" 
             name="password" placeholder="Password"
             className={classnames("input", {'is-invalid': errors.email})}
           />
           {errors.password && (<div className="invalid-feedback">{errors.password}</div>)}
           <input 
-            onChange={this.handleInputs} type="text"
+            onChange={this.handleInputs} type="password"
             name="password2" placeholder="Verify Password"
             className={classnames("input", {'is-invalid': errors.password})}
           />

@@ -54,7 +54,6 @@ class AddCampaign extends Component {
       <div>
         <Header />
         <div className="add-campaign-container">
-          <h1>This is the add campaign page</h1>
           <form className="form-container" onSubmit={this.submit}>
             <input 
               onChange={this.handleInputs} 
