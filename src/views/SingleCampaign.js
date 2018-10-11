@@ -89,7 +89,7 @@ class SingleCampaign extends Component {
           </div>
         </div>
         <div className="single-body-container">
-          <iframe className="single-video"
+          <iframe className="single-video" title="campaign"
             width="800" height="600" src={campaign.video} frameBorder="0" 
             allow="autoplay; encrypted-media" allowFullScreen>
           </iframe>
