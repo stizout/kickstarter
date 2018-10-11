@@ -197,6 +197,10 @@ table {
   }
 }
 
+.no-cssanimations .landing-ul li {
+  opacity: 1;
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
