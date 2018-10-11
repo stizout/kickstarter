@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux';
 import { getUserType } from '../ducks/actions/authorizationActions';
+import { Link } from 'react-router-dom';
 import image from '../No-image.jpg';
 import Modal from './Modal';
 import Header from '../Header';
@@ -58,6 +59,7 @@ class Profile extends Component {
                 {this.props.auth.userDetails.image ?
                 <img src={this.props.auth.userDetails.image} alt="profile" />
                 : <img src={image} alt="default" onClick={this.showModal}/>}
+                {this.props.auth.userDetails.type === 'entrepreneur' && <Link to='/campaigns/add'><li id="add-project">Add a Project</li></Link>}
                 <h4>{this.props.auth.userDetails.name}</h4>
                 <h4>{this.props.auth.userDetails.email}</h4>
                 <h4>Total Donations: {donations.length}</h4>

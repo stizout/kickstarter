@@ -591,6 +591,20 @@ body {
   min-height: 80vh;
 }
 
+a {
+  color: inherit;
+  list-style-type: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#add-project {
+  font-size: 30px;
+  color: #45A29E;
+  text-shadow: 1px 2px 4px black;
+  font-weight: bold;
+}
+
 .profile-top-container {
   display: -webkit-box;
   display: -ms-flexbox;
