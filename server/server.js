@@ -35,4 +35,8 @@ if(process.env.NODE_ENV === 'production') {
     res.sendfile(path.resolve(__dirname, 'build', 'index.html'));
   });
 }
-app.listen(4000, () => console.log('Server Started'));
+let port = process.env.PORT;
+if(port == null || port == '') {
+  port = 4000;
+}
+app.listen(port, () => console.log('Server Started'));
