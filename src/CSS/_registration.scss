@@ -58,3 +58,33 @@
     margin: 10px 0;
   }
 }
+
+@media (max-width: 500px) {
+  .form-container {
+    span {
+      width: 300px;
+      align-items: center;
+      justify-content: space-evenly;
+      font-size: 20px;
+      margin-top: 25px;
+    }
+    .input {
+      width: 300px;
+    }
+    button:hover {
+      background-color: blue;
+      cursor: pointer;
+    }
+    .invalid-feedback {
+      color: red;
+    }
+    .is-invalid {
+      border: 1px solid red;
+    }
+    .submit-button {
+      width: 150px;
+      height: 50px;
+    }
+  }
+
+}

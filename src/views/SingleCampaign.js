@@ -89,16 +89,16 @@ class SingleCampaign extends Component {
           </div>
         </div>
         <div className="single-body-container">
-          <iframe className="single-video" title="campaign"
-            width="800" height="600" src={campaign.video} frameBorder="0" 
-            allow="autoplay; encrypted-media" allowFullScreen>
-          </iframe>
+        { window.innerWidth > 1000 ?
+          <iframe title="video" width="600" height="400" src={campaign.video} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
+          : <iframe title="video" width="337" height="200" src={campaign.video} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
+        }
           <div className="single-goal-info">
             {donation && <p>Thanks for the donation!</p>}
             <span className="donation-line"><p style={lineGraph}></p></span>
             <p>Total Pledges: ${totalDonations}</p>
             <p>Goal: ${campaign.fullyFunded}</p>
-            <p>Backers: {totalBackers}</p>
+            <p>Backers: {totalBackers || 0}</p>
             <p>Days left: {Math.round(Math.abs(today - endDate) / (day))}</p>
             <p>Likes: {campaign.likes.length}
               <button onClick={() => this.likeOrDislike(campaign._id)}>Like</button>

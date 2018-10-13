@@ -39,6 +39,7 @@ export default class Dashboard extends Component {
   }
   render() {
     console.log(this.state)
+    console.log(window)
     const { campaigns, totalUsers, category, featured, campaignSort } = this.state
     return (
       <div className="dashboard-container">
@@ -66,8 +67,10 @@ export default class Dashboard extends Component {
               <span>
                 <h4>Featured KickStarter Project</h4>
               {campaigns.length > 0 ?
+                window.innerWidth > 1000 ?
                 <iframe title="video" width="600" height="400" src={featured.video} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
-                : null}
+                : <iframe title="video" width="337" height="200" src={featured.video} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
+              : null}
               </span>
             </div>
             {campaignSort.length > 0 ?

@@ -36,3 +36,13 @@ header {
     }
   }
 }
+
+@media (max-width: 500px) {
+
+header {
+  display: flex;
+  height: 40px;
+  font-size: 19px;
+
+}
+}

@@ -201,6 +201,17 @@ table {
   opacity: 1;
 }
 
+@media (max-width: 500px) {
+  .landing-container {
+    height: 60vh;
+    max-width: 500px;
+  }
+  .landing-container h1 {
+    font-size: 40px;
+    text-align: center;
+  }
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -252,6 +263,16 @@ header .header-container-right {
 header .header-container-right li {
   cursor: pointer;
   margin: 0 5px;
+}
+
+@media (max-width: 500px) {
+  header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 40px;
+    font-size: 19px;
+  }
 }
 
 .login-container {
@@ -338,6 +359,37 @@ header .header-container-right li {
   width: 300px;
   padding: 25px;
   margin: 10px 0;
+}
+
+@media (max-width: 500px) {
+  .form-container span {
+    width: 300px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    font-size: 20px;
+    margin-top: 25px;
+  }
+  .form-container .input {
+    width: 300px;
+  }
+  .form-container button:hover {
+    background-color: blue;
+    cursor: pointer;
+  }
+  .form-container .invalid-feedback {
+    color: red;
+  }
+  .form-container .is-invalid {
+    border: 1px solid red;
+  }
+  .form-container .submit-button {
+    width: 150px;
+    height: 50px;
+  }
 }
 
 body {
@@ -474,6 +526,71 @@ body {
   color: #45A29E;
 }
 
+@media (max-width: 500px) {
+  .dashboard-header-stats {
+    height: 60px;
+    margin-top: 60px;
+  }
+  .total-backers, .live-projects {
+    font-size: 17px;
+  }
+  .total-backers p, .live-projects p {
+    margin-left: 5px;
+  }
+  .dashboard-category-header {
+    font-size: 24px;
+  }
+  .dashboard-category-header div {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .dashboard-featured-container {
+    margin-bottom: 50px;
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+  }
+  .dashboard-featured-container .top-featured {
+    margin-top: 10px;
+    margin-right: 0px;
+  }
+  .other-featured-list {
+    border: 1px solid #66FCF1;
+    text-shadow: 1px 2px 4px black;
+    padding-bottom: 20px;
+  }
+  .other-featured-list .dashboard-desc {
+    width: 300px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-left: 0px;
+    padding-top: 10px;
+  }
+  .item-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 70%;
+    margin: 5 auto;
+    font-size: 20px;
+  }
+  .item-container a > img {
+    max-width: 80px;
+    max-height: 80px;
+    margin-right: 10px;
+  }
+}
+
 .single-container {
   min-height: 100vh;
   margin-top: 90px;
@@ -572,6 +689,52 @@ body {
   color: #1F2833;
   border: 1px solid #1F2833;
   cursor: pointer;
+}
+
+@media (max-width: 500px) {
+  .single-container {
+    min-height: 100vh;
+    margin-top: 50px;
+  }
+  .single-header-container h1 {
+    margin-left: 100px;
+    font-size: 30px;
+  }
+  .single-header-container h3 {
+    font-size: 25px;
+    margin-left: 80px;
+    color: lightgray;
+  }
+  .single-body-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 20px auto;
+  }
+  .single-goal-info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 500px;
+  }
+  .single-goal-info .donation-line {
+    width: 70%;
+    margin: 10px;
+  }
+  .single-goal-info .button {
+    width: 50%;
+  }
 }
 
 .add-campaign-container {
