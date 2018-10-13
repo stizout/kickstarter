@@ -42,7 +42,7 @@ export default class Dashboard extends Component {
     console.log(window)
     const { campaigns, totalUsers, category, featured, campaignSort } = this.state
     return (
-      <div className="dashboard-container">
+      <div>
         <Header />
         <div className="dashboard-header-stats">
           <div className="total-backers">

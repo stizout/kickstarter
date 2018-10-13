@@ -218,9 +218,8 @@ header {
   display: flex;
   height: 70px;
   padding: 0 15px;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -272,6 +271,14 @@ header .header-container-right li {
     display: flex;
     height: 40px;
     font-size: 19px;
+    padding: 0px 5px;
+  }
+  header .header-container-right {
+    padding-right: 5px;
+  }
+  header .header-container-right li {
+    cursor: pointer;
+    margin: 0 5px;
   }
 }
 
@@ -389,6 +396,9 @@ header .header-container-right li {
   .form-container .submit-button {
     width: 150px;
     height: 50px;
+    border-radius: 25px;
+    background-color: gray;
+    padding: 0px;
   }
 }
 
@@ -844,6 +854,72 @@ a {
   margin: 10px;
 }
 
+@media (max-width: 500px) {
+  .profile-container {
+    width: 110%;
+  }
+  .profile-top-container {
+    margin: 40px 0;
+    margin-right: 150px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .profile-details {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  .profile-details img {
+    max-height: 100px;
+  }
+  .profile-details h4:nth-child(4) {
+    margin: 5px 0;
+  }
+  .profile-main {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    text-align: center;
+    margin: 10px 0;
+    border: 1px solid #66FCF1;
+  }
+  .profile-main h1 {
+    font-size: 48px;
+    margin: 20px 0;
+  }
+  .profile-main h2 {
+    font-size: 26px;
+  }
+  .donation-info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 10px;
+  }
+}
+
 .modal-container {
   position: fixed;
   top: 25%;
@@ -883,6 +959,22 @@ a {
   margin: 5px 0;
   padding: 5px 0;
   border-radius: 5px;
+}
+
+@media (max-width: 500px) {
+  .modal-container {
+    left: 20%;
+  }
+  .modal-container h2 {
+    text-align: center;
+  }
+  .modal-container input {
+    margin: 10px 0;
+    width: 150px;
+  }
+  .modal-container button {
+    background-color: gray;
+  }
 }
 
 footer {

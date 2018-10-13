@@ -32,3 +32,21 @@
     border-radius: 5px;
   }
 }
+
+@media (max-width: 500px) {
+
+.modal-container {
+  left: 20%;
+  h2 {
+    text-align: center;
+  }
+  input {
+    margin: 10px 0;
+    width: 150px;
+  }
+  
+  button {
+    background-color: gray;
+  }
+}
+}
