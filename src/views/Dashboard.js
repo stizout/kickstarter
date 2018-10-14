@@ -46,11 +46,11 @@ export default class Dashboard extends Component {
         <Header />
         <div className="dashboard-header-stats">
           <div className="total-backers">
-            <h2>Total Live Campaigns</h2>
+            <h2>Live Campaigns</h2>
             <p>{campaigns.length > 0 ? campaigns.length : null}</p>
           </div>
           <div className="live-projects">
-            <h2>Total Backers</h2>
+            <h2>Backers</h2>
             <p>{totalUsers ? totalUsers : null}</p>
           </div>
         </div>
@@ -77,13 +77,13 @@ export default class Dashboard extends Component {
             <div className="other-featured-list">
               {campaignSort.map((item) => {
                 return (
-                  <div key={item._id} className="item-container">
-                      <Link to={`/campaigns/${item._id}`}><img alt="campaign" src="https://itefix.net/sites/default/files/not_available.png"/></Link>
+                  <Link to={`/campaigns/${item._id}`}><div key={item._id} className="item-container">
+                      <img alt="campaign" src="https://itefix.net/sites/default/files/not_available.png"/>
                       <div className="item-description">
                         <p className="dashboard-title">{item.title}</p>
                         <p className="dashboard-desc">Funding Goal: ${item.fullyFunded}</p>
                       </div>
-                  </div>
+                  </div></Link>
                 )
               })}
             </div>

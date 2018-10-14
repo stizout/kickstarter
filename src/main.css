@@ -218,8 +218,9 @@ header {
   display: flex;
   height: 70px;
   padding: 0 15px;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -244,11 +245,18 @@ header .header-container-left {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   list-style-type: none;
 }
 
 header .header-container-left li {
-  margin: 0 5px;
+  margin: 0px 5px;
+}
+
+header .header-container-left li img {
+  max-height: 90px;
 }
 
 header .header-container-right {
@@ -264,21 +272,49 @@ header .header-container-right li {
   margin: 0 5px;
 }
 
+header .mobile-menu {
+  display: none;
+}
+
 @media (max-width: 500px) {
   header {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     height: 40px;
     font-size: 19px;
     padding: 0px 5px;
+    width: 360px;
   }
   header .header-container-right {
     padding-right: 5px;
   }
   header .header-container-right li {
     cursor: pointer;
-    margin: 0 5px;
+    margin: 0 1px;
+  }
+  header .header-container-left li img {
+    max-height: 30px;
+    margin-left: 0px;
+  }
+  header .mobile-header-off {
+    display: none;
+  }
+  header .mobile-menu {
+    display: block;
+  }
+  .header-menu {
+    position: absolute;
+    top: 38px;
+    right: 0;
+    padding: 15px;
+    background-color: #202833;
+    border-radius: 10px;
+    border: 1px solid #66FCF1;
+    text-align: center;
+  }
+  .header-menu li {
+    margin: 10px 0;
   }
 }
 
@@ -526,7 +562,7 @@ body {
   font-size: 30px;
 }
 
-.item-container a > img {
+.item-container img {
   max-width: 80px;
   max-height: 80px;
   margin-right: 20px;
@@ -662,6 +698,12 @@ body {
   text-align: center;
   font-size: 24px;
   margin: 8px 0;
+}
+
+.single-goal-info > p button {
+  background-color: white;
+  border-radius: 5px;
+  margin-left: 5px;
 }
 
 .single-goal-info .button {

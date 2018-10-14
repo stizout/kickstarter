@@ -50,7 +50,9 @@ class SingleCampaign extends Component {
   }
 
   likeOrDislike = (id) => {
-    console.log(id)
+    if(!this.props.auth.isLoggedIn) {
+      return alert('You Must Be Logged In To Like')
+    }
     axios.post(`/api/campaigns/${id}/like`).then(res => {
       this.setState({campaign: res.data})
     });
@@ -111,6 +113,8 @@ class SingleCampaign extends Component {
                 <option value={10}>$10</option>
                 <option value={50}>$50</option>
                 <option value={100}>$100</option>
+                <option value={250}>$250</option>
+                <option value={500}>$500</option>
               </select>
                 <Checkout 
                   name="The Real Kickstarter"

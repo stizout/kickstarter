@@ -33,7 +33,8 @@ class Registration extends Component {
   }
   submit = (e) => {
     e.preventDefault();
-    const { name, email, password, password2, type } = this.state
+    const { name, password, password2, type } = this.state
+    let email = this.state.email.toLowerCase();
     let newUser = {
       type,
       name,
