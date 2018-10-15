@@ -29,13 +29,9 @@ app.use('/api/users', users);
 app.use('/api/campaigns', campaigns)
 
 // Serve static assets when in production
-  app.use(express.static('build'));
-  app.get('/*', (req, res) => {
-    res.sendfile(path.resolve(__dirname, 'build', 'index.html', function(err) {
-      if(err) {
-        console.log(err)
-      }
-    }));
+  app.use(express.static('/build'));
+  app.get('*', (req, res) => {
+    res.sendfile(path.resolve(__dirname, 'build', 'index.html'));
   });
 
 let port = process.env.PORT;
