@@ -32,7 +32,7 @@ app.use('/api/campaigns', campaigns)
 if(process.env.NODE_ENV === 'production') {
   app.use(express.static('build'));
   app.get('/*', (req, res) => {
-    res.sendfile(path.resolve(__dirname, 'build', 'index.html'));
+    res.sendfile(path.resolve(__dirname, 'public/index.html'));
   });
 }
 let port = process.env.PORT;
