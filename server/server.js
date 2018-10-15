@@ -31,7 +31,7 @@ app.use('/api/campaigns', campaigns)
 // Serve static assets when in production
   app.use(express.static('build'));
   app.get('/*', (req, res) => {
-    res.sendfile(path.resolve(__dirname, 'public/index.html', function(err) {
+    res.sendfile(path.resolve(__dirname, 'build', 'index.html', function(err) {
       if(err) {
         console.log(err)
       }
