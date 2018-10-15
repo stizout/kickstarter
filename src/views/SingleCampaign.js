@@ -127,7 +127,10 @@ class SingleCampaign extends Component {
               : null}
           </div>
         </div>
-          {campaign.description}
+        <div className="campaign-description-container">
+          <h1>Get to know {campaign.title}</h1>
+          <p>{campaign.description}</p>
+        </div>
         <Footer />
       </div>
       : <h1>Loading...</h1>

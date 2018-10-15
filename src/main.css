@@ -743,6 +743,19 @@ body {
   cursor: pointer;
 }
 
+.campaign-description-container h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.campaign-description-container p {
+  font-size: 18px;
+  width: 60%;
+  margin-left: 80px;
+  margin-bottom: 60px;
+  line-height: 1.3em;
+}
+
 @media (max-width: 500px) {
   .single-container {
     min-height: 100vh;
