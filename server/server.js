@@ -29,12 +29,11 @@ app.use('/api/users', users);
 app.use('/api/campaigns', campaigns)
 
 // Serve static assets when in production
-if(process.env.NODE_ENV === 'production') {
   app.use(express.static('build'));
   app.get('/*', (req, res) => {
     res.sendfile(path.resolve(__dirname, 'public/index.html'));
   });
-}
+
 let port = process.env.PORT;
 if(port == null || port == '') {
   port = 4000;
