@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import axios from 'axios';
+import OtherCampaigns from '../OtherCampaigns';
 import Header from '../Header';
 import Footer from '../Footer';
 import Checkout from '../Checkout';
 
 class SingleCampaign extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       campaign: null,
       user: null,
@@ -56,6 +57,13 @@ class SingleCampaign extends Component {
     axios.post(`/api/campaigns/${id}/like`).then(res => {
       this.setState({campaign: res.data})
     });
+  }
+
+  updateCampaign = (camp) => {
+    this.setState({
+      campaign: camp
+    });
+    window.scrollTo(0,0);
   }
   render() {
     console.log(this.state.campaign)
@@ -131,6 +139,7 @@ class SingleCampaign extends Component {
           <h1>Get to know {campaign.title}</h1>
           <p>{campaign.description}</p>
         </div>
+        <OtherCampaigns updateCampaign={(camp) => this.updateCampaign(camp)}/>
         <Footer />
       </div>
       : <h1>Loading...</h1>
