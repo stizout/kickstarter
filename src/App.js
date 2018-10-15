@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { setUserInRedux, logoutUser, getUserType } from './ducks/actions/authorizationActions';
+import { browserHistory } from 'react-router'
 import jwt_decode from 'jwt-decode';
 import setAuthHeader from './setAuthHeader';
 import store from './ducks/store';
@@ -43,7 +44,7 @@ const Profile = Loadable({
 
 const Home = () => (
   <Provider store={store}>
-    <Router>
+    <Router history={browserHistory}>
       <Switch>
         <Route path="/" exact component={Landing}/>
         <Route path="/register" component={Registration}/>
